@@ -3,162 +3,183 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QA Hub</title>
+  <title>QA Comedy Lab</title>
+
   <style>
     :root{
-      --bg1:#0b1020;
-      --bg2:#130b1f;
-      --card: rgba(255,255,255,.07);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.7);
-      --line: rgba(255,255,255,.14);
+      --peach:#ffb7a5;
+      --orange:#ff8c42;
+      --yellow:#ffd166;
+
+      --bg1:#fff1e6;
+      --bg2:#ffe8cc;
+
+      --card: rgba(255,140,66,.12);
+      --text:#4a2c1d;
+      --muted:#7a4a32;
+      --line: rgba(255,140,66,.35);
     }
+
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       min-height:100vh;
       color:var(--text);
-      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
-        radial-gradient(1100px 700px at 15% 20%, rgba(59,130,246,.18), transparent 60%),
-        radial-gradient(900px 700px at 85% 25%, rgba(168,85,247,.18), transparent 55%),
-        radial-gradient(900px 900px at 50% 90%, rgba(110,231,183,.14), transparent 60%),
+        radial-gradient(900px 600px at 15% 20%, rgba(255,209,102,.45), transparent 60%),
+        radial-gradient(900px 700px at 85% 30%, rgba(255,140,66,.35), transparent 60%),
+        radial-gradient(900px 900px at 50% 90%, rgba(255,183,165,.45), transparent 65%),
         linear-gradient(140deg, var(--bg1), var(--bg2));
       padding: 44px 18px 70px;
     }
+
     .wrap{ max-width: 980px; margin: 0 auto; }
+
     header{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:16px;
-      margin-bottom: 22px;
+      margin-bottom:22px;
     }
+
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
-      text-transform: uppercase;
+      text-transform:uppercase;
       letter-spacing:.4px;
-      font-size: 12px;
-      color: var(--muted);
+      font-size:12px;
+      color:var(--muted);
     }
+
     .badge{
-      width: 12px; height: 12px; border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,.18));
-      border:1px solid rgba(255,255,255,.25);
-      box-shadow: 0 0 22px rgba(110,231,183,.35);
+      width:12px;height:12px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--orange));
+      border:1px solid var(--orange);
+      box-shadow: 0 0 18px rgba(255,140,66,.6);
     }
+
     nav a{
-      color: var(--muted);
+      color:var(--muted);
       text-decoration:none;
-      font-size: 13px;
-      margin-left: 14px;
-      border-bottom: 1px solid transparent;
+      font-size:13px;
+      margin-left:14px;
+      border-bottom:1px solid transparent;
     }
-    nav a:hover{ border-bottom-color: var(--line); }
+    nav a:hover{ border-bottom-color:var(--orange); }
 
     .hero{
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
-      border-radius: 18px;
-      padding: 28px 22px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.35);
-      backdrop-filter: blur(10px);
-      overflow:hidden;
+      border:1px solid var(--line);
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.7),
+        rgba(255,183,165,.35)
+      );
+      border-radius:18px;
+      padding:28px 22px;
+      box-shadow: 0 10px 35px rgba(255,140,66,.25);
+      backdrop-filter: blur(8px);
       position:relative;
     }
+
     .hero:before{
       content:"";
       position:absolute;
       inset:-120px auto auto -120px;
-      width: 260px; height: 260px;
-      background: radial-gradient(circle, rgba(59,130,246,.22), transparent 65%);
-      filter: blur(6px);
-      transform: rotate(-10deg);
+      width:260px;height:260px;
+      background: radial-gradient(circle, rgba(255,209,102,.6), transparent 65%);
+      filter: blur(8px);
       pointer-events:none;
     }
+
     h1{
-      margin: 0 0 10px;
+      margin:0 0 10px;
       font-size: clamp(34px, 4.2vw, 58px);
-      line-height: 1.05;
-      letter-spacing: -.8px;
+      line-height:1.05;
+      letter-spacing:-.8px;
     }
+
     .subtitle{
-      margin: 0 0 14px;
-      color: var(--muted);
-      max-width: 70ch;
+      margin:0 0 14px;
+      color:var(--muted);
+      max-width:70ch;
     }
+
     .callout{
-      margin: 14px 0 0;
-      padding: 12px 14px;
-      border: 1px dashed rgba(255,255,255,.24);
-      border-radius: 14px;
-      color: rgba(255,255,255,.85);
-      background: rgba(255,255,255,.04);
+      margin:14px 0 0;
+      padding:12px 14px;
+      border:2px dashed var(--orange);
+      border-radius:14px;
+      background: rgba(255,209,102,.35);
+      font-weight:600;
     }
+
     .pillrow{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top: 16px;
+      margin-top:16px;
     }
+
     button{
-      appearance:none;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.07);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 999px;
+      border:1px solid var(--orange);
+      background: linear-gradient(180deg, var(--yellow), var(--peach));
+      color:#4a2c1d;
+      padding:10px 14px;
+      border-radius:999px;
       cursor:pointer;
-      font-weight: 650;
-      letter-spacing:.15px;
+      font-weight:700;
     }
-    button:hover{ background: rgba(255,255,255,.11); }
-    button:active{ transform: translateY(1px); }
+    button:hover{
+      background: linear-gradient(180deg, var(--peach), var(--orange));
+      color:#fff;
+    }
 
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-      margin-top: 18px;
+      gap:16px;
+      margin-top:18px;
     }
+
     .card{
       grid-column: span 6;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--card);
-      padding: 18px 18px 16px;
-      backdrop-filter: blur(10px);
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(255,255,255,.65);
+      padding:18px;
+      box-shadow: 0 6px 18px rgba(255,140,66,.18);
     }
+
     .card h2{
-      margin: 0 0 8px;
-      font-size: 16px;
-      letter-spacing:.2px;
+      margin:0 0 8px;
+      font-size:16px;
     }
-    .card p{ margin: 0; color: var(--muted); }
-    .card small{ display:block; margin-top:10px; color: rgba(255,255,255,.55); }
+
+    .card p{ margin:0; color:var(--muted); }
 
     .terminal{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 13px;
-      background: rgba(0,0,0,.25);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 14px;
-      padding: 12px 12px;
-      margin-top: 12px;
-      color: rgba(255,255,255,.82);
-      overflow:auto;
+      font-family: ui-monospace, monospace;
+      font-size:13px;
+      background: rgba(255,209,102,.35);
+      border:1px solid var(--orange);
+      border-radius:14px;
+      padding:12px;
+      margin-top:12px;
+      color:#5a2f1a;
     }
-    .terminal .dim{ color: rgba(255,255,255,.5); }
 
     footer{
-      margin-top: 26px;
+      margin-top:26px;
       text-align:center;
-      color: rgba(255,255,255,.5);
-      font-size: 12px;
+      color:var(--muted);
+      font-size:12px;
     }
-    @media (max-width: 720px){
+
+    @media (max-width:720px){
       .card{ grid-column: span 12; }
       header{ flex-direction:column; align-items:flex-start; }
       nav a{ margin-left:0; margin-right:12px; }
@@ -170,197 +191,59 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <span class="badge" aria-hidden="true"></span>
+        <span class="badge"></span>
         <span>qa comedy lab</span>
       </div>
       <nav>
-        <a href="#jokes">Jokes</a>
-        <a href="#bugs">Bugs</a>
-        <a href="#report">Report</a>
+        <a href="#">Jokes</a>
+        <a href="#">Bugs</a>
+        <a href="#">Reports</a>
       </nav>
     </header>
 
     <main class="hero">
-      <h1>Ship Happens.</h1>
+      <h1>Ship Happens 🍑</h1>
       <p class="subtitle">
-        A tiny creative site dedicated to Quality Assurance: the brave souls who click
-        the one button nobody tested because “it’s probably fine”.
+        A creative QA space where bugs are orange, releases are yellow,
+        and confidence is always slightly peach-colored.
       </p>
 
-      <div class="callout" id="jokes">
-        <strong>Daily QA mantra:</strong>
-        <span id="mantra">“Works on my machine” is not a test plan.</span>
+      <div class="callout">
+        “Works on my machine” — said no tester ever (out loud).
       </div>
 
-      <div class="pillrow" aria-label="QA fun buttons">
-        <button id="btn-joke">Generate QA joke</button>
-        <button id="btn-bug">Spawn a bug report</button>
-        <button id="btn-pass">Run “tests”</button>
-        <button id="btn-reset">Reset</button>
+      <div class="pillrow">
+        <button>Generate QA joke</button>
+        <button>Spawn a bug</button>
+        <button>Run tests</button>
+        <button>Reset vibes</button>
       </div>
 
-      <div class="grid" id="report">
+      <div class="grid">
         <section class="card">
-          <h2>QA Wisdom (Very Serious)</h2>
+          <h2>QA Truth</h2>
           <p>
-            If you can’t reproduce it, it’s not a bug—it's a <em>feature request from the universe</em>.
-            But we’ll still file it. With steps. And screenshots. And a polite sigh.
+            If you didn’t test the edge case, the edge case will test you.
+            Usually on Friday evening.
           </p>
-          <small>Pro tip: “Expected vs Actual” is the plot twist section.</small>
         </section>
 
-        <section class="card" id="panel">
-          <h2>Output Console</h2>
-          <p id="output">Click a button to begin the comedy-driven test cycle.</p>
-          <div class="terminal" id="terminal" aria-live="polite">
-            <div class="dim">qa@lab:~$ waiting for user input…</div>
+        <section class="card">
+          <h2>Console Output</h2>
+          <p>This build looks fine. Which is deeply suspicious.</p>
+          <div class="terminal">
+            qa@peach-lab:~$ running tests...<br />
+            ⚠️ 1 warning<br />
+            🐛 3 bugs<br />
+            ☕ caffeine required
           </div>
-          <small id="stamp">—</small>
         </section>
       </div>
-
-      <section class="card" id="bugs" style="margin-top:16px;">
-        <h2>Bug Report Generator (Because Why Not)</h2>
-        <p class="dim" style="color: rgba(255,255,255,.6); margin-top:6px;">
-          This produces a nicely formatted bug report you can paste into your tracker. It’s satire. Mostly.
-        </p>
-        <pre class="terminal" id="bugBlock"><span class="dim">No bug report yet.</span></pre>
-      </section>
     </main>
 
     <footer>
-      Built with basic HTML/CSS/JS. 0% frameworks. 100% “Did you try clearing cache?”
+      HTML + CSS + QA humor. Severity: 🍑 Medium.
     </footer>
   </div>
-
-  <script>
-    const mantras = [
-      "“Works on my machine” is not a test plan.",
-      "If it passes once, it’s flaky. If it fails once, it’s ‘cannot reproduce’.",
-      "Hope is not a release strategy.",
-      "QA: turning ‘it’s fine’ into ‘it’s documented’.",
-      "If you didn’t log it, it didn’t happen. (Except the outage. That happened.)"
-    ];
-
-    const jokes = [
-      "Why did the QA cross the road? To reproduce the bug on the other environment.",
-      "I told the dev the bug was intermittent. They said: ‘So is my attention.’",
-      "My favorite feature is the loading spinner—it’s always responsive.",
-      "QA walks into a bar, orders 1 beer, 0 beers, -1 beers, 999999 beers… and the bar catches fire.",
-      "I don’t always file bugs, but when I do, it’s ‘Severity: Emotional’."
-    ];
-
-    const steps = [
-      "Open the app",
-      "Click the shiny button",
-      "Do the thing you ‘definitely can’t do’",
-      "Observe unexpected enlightenment",
-      "Sigh professionally"
-    ];
-
-    const environments = ["Staging", "Prod (oops)", "Local", "UAT", "The one nobody remembers"];
-    const severities = ["Low", "Medium", "High", "Critical", "Cosmic"];
-    const browsers = ["Chrome", "Firefox", "Safari", "Edge", "Internet Explorer (why?)"];
-    const moods = ["confused", "concerned", "deeply unimpressed", "mildly haunted", "surprisingly calm"];
-
-    const output = document.getElementById("output");
-    const terminal = document.getElementById("terminal");
-    const bugBlock = document.getElementById("bugBlock");
-    const stamp = document.getElementById("stamp");
-    const mantraEl = document.getElementById("mantra");
-
-    const nowStamp = () => {
-      const d = new Date();
-      return d.toLocaleString(undefined, { hour: "2-digit", minute: "2-digit" });
-    };
-
-    function log(line, dim=false){
-      const div = document.createElement("div");
-      div.textContent = line;
-      if(dim) div.style.opacity = "0.65";
-      terminal.appendChild(div);
-      terminal.scrollTop = terminal.scrollHeight;
-    }
-
-    function rand(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
-
-    function setMantra(){
-      mantraEl.textContent = rand(mantras);
-    }
-    setMantra();
-
-    document.getElementById("btn-joke").addEventListener("click", () => {
-      const j = rand(jokes);
-      output.textContent = j;
-      log("qa@lab:~$ generate --joke", true);
-      log("✅ " + j);
-      stamp.textContent = "— joked at " + nowStamp();
-      setMantra();
-    });
-
-    document.getElementById("btn-pass").addEventListener("click", () => {
-      output.textContent = "Running tests… (the real test is your patience).";
-      log("qa@lab:~$ npm test", true);
-
-      const results = [
-        "PASS  ui.spec.js  (1 test, 1 passed)",
-        "PASS  api.spec.js (3 tests, 3 passed)",
-        "WARN  flaky.spec.js (passes when observed)",
-        "NOTE  coffee.spec.js (requires caffeine >= 1)"
-      ];
-
-      results.forEach(r => log(r));
-      log("✨ Summary: 4 files, 1 warning, 0 confidence.");
-      stamp.textContent = "— tested at " + nowStamp();
-    });
-
-    document.getElementById("btn-bug").addEventListener("click", () => {
-      const env = rand(environments);
-      const sev = rand(severities);
-      const br = rand(browsers);
-      const mood = rand(moods);
-
-      const stepCount = 3 + Math.floor(Math.random() * 3);
-      const chosenSteps = Array.from({length: stepCount}, (_, i) => `${i+1}. ${rand(steps)}`);
-
-      const title = `Button does the opposite of what it promises (and feels ${mood})`;
-      const expected = "Expected: Button performs the advertised action and everyone applauds politely.";
-      const actual = "Actual: Button triggers an alternate timeline where the UI shrugs and logs nothing.";
-
-      const report =
-`Title: ${title}
-Environment: ${env}
-Browser: ${br}
-Severity: ${sev}
-
-Steps to Reproduce:
-${chosenSteps.join("\n")}
-
-Expected Result:
-${expected}
-
-Actual Result:
-${actual}
-
-Notes:
-- Repro rate: 60% (100% when demoing to stakeholders)
-- Attachments: screenshot.png (contains a spinner contemplating existence)
-`;
-
-      bugBlock.textContent = report;
-      output.textContent = "Bug report spawned. Please file it under ‘It’s Funny Until It’s Prod’.";
-      log("qa@lab:~$ report --spawn", true);
-      log("🐛 Bug report generated (" + sev + ") in " + env + ".");
-      stamp.textContent = "— reported at " + nowStamp();
-    });
-
-    document.getElementById("btn-reset").addEventListener("click", () => {
-      output.textContent = "Reset complete. The bug is still here, but the vibes improved.";
-      terminal.innerHTML = '<div class="dim">qa@lab:~$ waiting for user input…</div>';
-      bugBlock.innerHTML = '<span class="dim">No bug report yet</span>';
-      stamp.textContent = "—";
-      setMantra();
-    });
-  </script>
 </body>
 </html>
