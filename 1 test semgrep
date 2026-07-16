@@ -1,0 +1,11 @@
+import os
+
+
+def connect_to_service():
+    username = os.getenv("SERVICE_USERNAME")
+    password = os.getenv("SERVICE_PASSWORD")
+
+    return {
+        "username": username,
+        "password": password,
+    }
